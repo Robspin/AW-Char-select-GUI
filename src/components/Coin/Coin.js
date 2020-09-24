@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import './coin.css';
 
 const Coin = () => {
@@ -16,22 +16,32 @@ const Coin = () => {
    };
 
    // begin
-
    function deferFn(callback, ms) {
       setTimeout(callback, ms);
    }
 
    function processResult(result) {
-      setCoinResult(result);
+      setCoinResult(result.toUpperCase());
    }
-
    // end
 
    return (
-      <Fragment>
-         <div id='coin' className={coinClass}>
-            <div id='heads' className='heads'></div>
-            <div id='tails' className='tails'></div>
+      <div className='container'>
+         <div className='sub-container'>
+            <div className='input-container'>
+               <label>Player 1 - HEADS -</label>
+               <input type='text' />
+            </div>
+            <div className='border'>
+               <div id='coin' className={coinClass}>
+                  <div id='heads' className='heads'></div>
+                  <div id='tails' className='tails'></div>
+               </div>
+            </div>
+            <div className='input-container'>
+               <label>Player 2 - TAILS -</label>
+               <input type='text' />
+            </div>
          </div>
          <button id='flip' onClick={clickHandler}>
             Flip
@@ -39,7 +49,7 @@ const Coin = () => {
          <p>
             <span id='status'>{coinResult}</span>
          </p>
-      </Fragment>
+      </div>
    );
 };
 

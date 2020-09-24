@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Coin from './components/Coin/Coin';
+import CoinFlip from './steps/CoinFlip';
 
 const App = () => {
    return (
-      <div>
-         <Coin />
+      <div className='app'>
+         <CoinFlip />
       </div>
    );
 };
