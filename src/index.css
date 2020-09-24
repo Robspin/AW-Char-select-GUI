@@ -1,13 +1,117 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+   font-family: 'advance-wars-2-gba-webfont';
+   src: url('./font/advance-wars-2-gba-webfont.woff2') format('woff2'),
+      url('./font/advance-wars-2-gba-webfont.woff') format('woff');
+   font-weight: normal;
+   font-style: normal;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+   box-sizing: border-box;
 }
+
+body {
+   margin: 0;
+   height: 100vh;
+   width: 100vw;
+   background: url('./images/bg.png') no-repeat;
+   background-size: cover;
+   font-family: 'advance-wars-2-gba-webfont';
+   font-size: 35px;
+}
+
+/* .coin {
+   width: 150px;
+   position: absolute;
+   border-radius: 50%;
+   /* border: 5px solid black; */
+/* } */
+/* 
+.heads {
+   animation: heads 1s linear infinite;
+}
+
+.tails {
+   animation: tails 1s linear infinite;
+}
+
+@keyframes tails {
+   0% {
+      z-index: 10;
+      transform: rotateY(0deg);
+   }
+   25% {
+      z-index: 5;
+      transform: rotateY(90deg);
+   }
+   50% {
+      z-index: 10;
+      transform: rotateY(180deg);
+   }
+   75% {
+      z-index: 10;
+      transform: rotateY(270deg);
+   }
+   100% {
+      z-index: 10;
+      transform: rotateY(360deg);
+   }
+} */
+
+/* @keyframes heads {
+   0% {
+      z-index: 5;
+      transform: rotateY(0deg);
+   }
+   25% {
+      z-index: 5;
+      transform: rotateY(90deg);
+   }
+   50% {
+      z-index: 10;
+      transform: rotateY(180deg);
+   }
+   75% {
+      z-index: 10;
+      transform: rotateY(270deg);
+   }
+   100% {
+      z-index: 5;
+      transform: rotateY(360deg);
+   }
+} */
+
+/* .wrapper {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   height: 100vh;
+   position: relative;
+} 
+
+/* .flip img {
+   animation: flipIt 2s linear infinite;
+}
+.tail img {
+   animation-delay: 1s;
+}
+
+@keyframes flipIt {
+   0% {
+      width: 0px;
+      height: 150px;
+   }
+   25% {
+      width: 150px;
+      height: 150px;
+   }
+   50% {
+      width: 0px;
+      height: 150px;
+   }
+   100% {
+      width: 0px;
+      height: 150px;
+   }
+} */
