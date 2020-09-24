@@ -7,11 +7,19 @@ const CoinFlip = () => {
    const [text, setText] = useState(
       'Please fill in the names and flip the coin...'
    );
-   const [winner, setWinner] = useState('');
+   const [players, setPlayers] = useState(null);
+   const [winner, setWinner] = useState(null);
+
+   console.log(players);
+   console.log(winner);
 
    return (
       <Fragment>
-         <Coin />
+         <Coin
+            setPlayers={setPlayers}
+            setWinner={setWinner}
+            setText={setText}
+         />
          <Nell text={text} />
       </Fragment>
    );

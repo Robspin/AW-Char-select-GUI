@@ -2,8 +2,6 @@ import React from 'react';
 import './nell.css';
 
 const Nell = ({ text }) => {
-   console.log(text);
-
    return (
       <div className='nell'>
          <div className='textbox'>

@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import './coin.css';
 
-const Coin = () => {
+const Coin = ({ setText, setPlayers, setWinner }) => {
    const [coinClass, setCoinClass] = useState('');
    const [coinResult, setCoinResult] = useState('');
+   const [player1, setPlayer1] = useState('');
+   const [player2, setPlayer2] = useState('');
 
    const clickHandler = () => {
+      if (player1 === '' || player2 === '') {
+         return setText('Sorry, player names cant be empty...');
+      }
+
       setCoinClass('');
       const random = Math.random();
       const result = random < 0.5 ? 'heads' : 'tails';
@@ -22,6 +28,13 @@ const Coin = () => {
 
    function processResult(result) {
       setCoinResult(result.toUpperCase());
+      setPlayers({ player1, player2 });
+      result === 'heads' ? setWinner(player1) : setWinner(player2);
+      setText(
+         `Congrats ${
+            result === 'heads' ? player1 : player2
+         }, you won the coinflip!`
+      );
    }
    // end
 
@@ -30,7 +43,7 @@ const Coin = () => {
          <div className='sub-container'>
             <div className='input-container'>
                <label>Player 1 - HEADS -</label>
-               <input type='text' />
+               <input type='text' onChange={e => setPlayer1(e.target.value)} />
             </div>
             <div className='border'>
                <div id='coin' className={coinClass}>
@@ -40,7 +53,7 @@ const Coin = () => {
             </div>
             <div className='input-container'>
                <label>Player 2 - TAILS -</label>
-               <input type='text' />
+               <input type='text' onChange={e => setPlayer2(e.target.value)} />
             </div>
          </div>
          <button id='flip' onClick={clickHandler}>
