@@ -35,9 +35,19 @@ input {
 button {
    margin-top: 20px;
    padding: 12px;
-   background-color: white;
+   background-color: rgb(245, 245, 63);
    font-family: advance-wars-2-gba-webfont;
    font-size: 28px;
+   cursor: pointer;
+   border: 3px solid black;
+}
+
+button:hover {
+   background-color: rgb(228, 228, 112);
+}
+
+button:focus {
+   outline: none;
 }
 
 #coin {

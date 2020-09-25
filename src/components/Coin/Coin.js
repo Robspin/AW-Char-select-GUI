@@ -3,9 +3,9 @@ import './coin.css';
 
 const Coin = ({ setText, setPlayers, setWinner }) => {
    const [coinClass, setCoinClass] = useState('');
-   const [coinResult, setCoinResult] = useState('');
    const [player1, setPlayer1] = useState('');
    const [player2, setPlayer2] = useState('');
+   // const [coinResult, setCoinResult] = useState('');
 
    const clickHandler = () => {
       if (player1 === '' || player2 === '') {
@@ -27,9 +27,14 @@ const Coin = ({ setText, setPlayers, setWinner }) => {
    }
 
    function processResult(result) {
-      setCoinResult(result.toUpperCase());
+      // setCoinResult(result.toUpperCase());
       setPlayers({ player1, player2 });
-      result === 'heads' ? setWinner(player1) : setWinner(player2);
+      if (result === 'heads') {
+         setWinner(player1);
+      } else {
+         setWinner(player2);
+      }
+
       setText(
          `Congrats ${
             result === 'heads' ? player1 : player2
@@ -57,11 +62,11 @@ const Coin = ({ setText, setPlayers, setWinner }) => {
             </div>
          </div>
          <button id='flip' onClick={clickHandler}>
-            Flip
+            FLIP COIN
          </button>
-         <p>
+         {/* <p>
             <span id='status'>{coinResult}</span>
-         </p>
+         </p> */}
       </div>
    );
 };

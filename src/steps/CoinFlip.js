@@ -2,16 +2,12 @@ import React, { Fragment, useState } from 'react';
 
 import Coin from '../components/coin/Coin';
 import Nell from '../components/nell/Nell';
+import NextButton from '../components/next-button/NextButton';
 
-const CoinFlip = () => {
+const CoinFlip = ({ setPlayers, winner, setWinner, setPage }) => {
    const [text, setText] = useState(
       'Please fill in the names and flip the coin...'
    );
-   const [players, setPlayers] = useState(null);
-   const [winner, setWinner] = useState(null);
-
-   console.log(players);
-   console.log(winner);
 
    return (
       <Fragment>
@@ -21,6 +17,7 @@ const CoinFlip = () => {
             setText={setText}
          />
          <Nell text={text} />
+         {winner && <NextButton onClick={() => setPage('winnerchoose')} />}
       </Fragment>
    );
 };
