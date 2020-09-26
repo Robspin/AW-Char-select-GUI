@@ -1,10 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './playerselection.css';
 
-const PlayerSelection = ({ players, setText, winner }) => {
+const PlayerSelection = ({
+   players,
+   setText,
+   winner,
+   selectedCO,
+   clickedCO
+}) => {
    const [colorModalShow, setColorModalShow] = useState('hide');
    const [winnerColor, setWinnerColor] = useState('red');
    const [loserColor, setLoserColor] = useState('blue');
+
+   const [imgURL, setImgUrl] = useState('');
+
+   useEffect(() => {
+      // if (clickedCO !== '') {
+      //    setImgUrl(clickedCO)
+      // }
+      setImgUrl(selectedCO);
+   }, [selectedCO, clickedCO]);
 
    const colorHandlerWinner = e => {
       const current = e.target.className.split(' ')[1];
@@ -49,7 +64,13 @@ const PlayerSelection = ({ players, setText, winner }) => {
                <div className='sbox green' onClick={colorHandlerWinner} />
                <div className='sbox black' onClick={colorHandlerWinner} />
             </div>
-            <div className={`player winner ${winnerColor}`}></div>
+            <div className={`player winner ${winnerColor}`}>
+               <img
+                  src={imgURL}
+                  alt='selected-co'
+                  className={imgURL === '' ? 'empty' : 'COSelect'}
+               />
+            </div>
          </div>
          <div className='flex'>
             <h4>

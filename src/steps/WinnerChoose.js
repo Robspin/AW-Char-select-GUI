@@ -16,14 +16,26 @@ const WinnerChoose = ({ players, winner, setPage }) => {
    const [text, setText] = useState(
       `${winner}, please pick CO, MAP and COLOR.`
    );
+   const [selectedCO, setSelectedCO] = useState('');
+   const [clickedCO, setClickedCO] = useState('');
 
    return (
       <div>
          <div className='top-container'>
-            <TierList />
+            <TierList
+               setSelectedCO={setSelectedCO}
+               setClickedCO={setClickedCO}
+               clickedCO={clickedCO}
+            />
             <MapSelect />
          </div>
-         <PlayerSelection players={players} setText={setText} winner={winner} />
+         <PlayerSelection
+            players={players}
+            setText={setText}
+            winner={winner}
+            selectedCO={selectedCO}
+            clickedCO={clickedCO}
+         />
          <Nell text={text} />
          {/* <NextButton /> */}
       </div>

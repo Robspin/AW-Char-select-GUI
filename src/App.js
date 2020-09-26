@@ -9,7 +9,7 @@ const App = () => {
       player2: 'Player 2'
    });
    const [winner, setWinner] = useState(null);
-   const [page, setPage] = useState('coinflip');
+   const [page, setPage] = useState('winnerchoose');
 
    return (
       <div className='app'>

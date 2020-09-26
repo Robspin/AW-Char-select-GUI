@@ -15,6 +15,7 @@
    width: 200px;
    border: 4px solid black;
    margin-right: 20px;
+   background-color: #fbf2c1;
 }
 
 .color {
@@ -119,4 +120,15 @@
 
 .sbox.black {
    background-color: grey;
+}
+
+.empty {
+   display: none;
+}
+
+.COSelect {
+   display: flexbox;
+   height: 100%;
+   width: 100%;
+   background-color: #fbf2c1;
 }
