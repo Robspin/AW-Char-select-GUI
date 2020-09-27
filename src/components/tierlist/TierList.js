@@ -1,15 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './tierlist.css';
 
-const TierList = ({ setSelectedCO, setClickedCO, clickedCO }) => {
+const TierList = ({
+   setSelectedCO,
+   setClickedCO,
+   clickedCO,
+   winnerPhase,
+   setClickedCO2
+}) => {
    const enterHandler = e => {
       setSelectedCO(e.target.src);
    };
 
    const leaveHandler = e => {
+      // if (winnerPhase === true) {
       if (clickedCO === e.target.alt) {
          return null;
       }
+      // } else {
+      //    if (clickedCO2 === e.target.alt) {
+      //       return null;
+      //    }
+      // }
       setSelectedCO('');
    };
 
@@ -27,9 +39,13 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO }) => {
                className={clickedCO.name === 'hachi' ? 'CO hachi' : 'CO'}
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
-               onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'hachi' })
-               }
+               onClick={e => {
+                  if (winnerPhase === true) {
+                     setClickedCO({ source: e.target.src, name: 'hachi' });
+                  } else if (winnerPhase === false) {
+                     setClickedCO({ source: e.target.src, name: 'hachi' });
+                  }
+               }}
             />
             <img
                src={require('../../images/COS/Sensei0.png')}
@@ -37,9 +53,13 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO }) => {
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
                className={clickedCO.name === 'sensei' ? 'CO sensei' : 'CO'}
-               onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'sensei' })
-               }
+               onClick={e => {
+                  if (winnerPhase === true) {
+                     setClickedCO({ source: e.target.src, name: 'sensei' });
+                  } else {
+                     setClickedCO2({ source: e.target.src, name: 'sensei' });
+                  }
+               }}
             />
          </div>
          <div className='row'>

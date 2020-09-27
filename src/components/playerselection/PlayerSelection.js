@@ -6,20 +6,30 @@ const PlayerSelection = ({
    setText,
    winner,
    selectedCO,
-   clickedCO
+   clickedCO,
+   winnerPhase
 }) => {
    const [colorModalShow, setColorModalShow] = useState('hide');
    const [winnerColor, setWinnerColor] = useState('red');
    const [loserColor, setLoserColor] = useState('blue');
 
    const [imgURL, setImgUrl] = useState('');
+   const [imgURL2, setImgUrl2] = useState('');
 
    useEffect(() => {
-      if (clickedCO.source) {
-         return setImgUrl(clickedCO.source);
+      if (winnerPhase === true) {
+         if (clickedCO.source) {
+            return setImgUrl(clickedCO.source);
+         }
+         setImgUrl(selectedCO);
       }
-      setImgUrl(selectedCO);
-   }, [selectedCO, clickedCO]);
+      if (winnerPhase === false) {
+         if (clickedCO.source) {
+            return setImgUrl2(clickedCO.source);
+         }
+         setImgUrl2(selectedCO);
+      }
+   }, [selectedCO, clickedCO, winnerPhase]);
 
    const colorHandlerWinner = e => {
       const current = e.target.className.split(' ')[1];
@@ -49,7 +59,10 @@ const PlayerSelection = ({
             <h4>{winner}</h4>
             <div
                className={`color winner ${winnerColor}`}
-               onClick={() => setColorModalShow('show-winner')}
+               onClick={() => {
+                  if (!winnerPhase) return null;
+                  setColorModalShow('show-winner');
+               }}
             />
             <div
                className={
@@ -93,7 +106,13 @@ const PlayerSelection = ({
                <div className='sbox green' onClick={colorHandlerLoser} />
                <div className='sbox black' onClick={colorHandlerLoser} />
             </div>
-            <div className={`player loser ${loserColor}`}></div>
+            <div className={`player loser ${loserColor}`}>
+               <img
+                  src={imgURL2}
+                  alt='selected-co'
+                  className={imgURL2 === '' ? 'empty' : 'COSelect'}
+               />
+            </div>
          </div>
       </div>
    );

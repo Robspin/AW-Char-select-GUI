@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import './mapselect.css';
 
-const MapSelect = ({ setMap, disabled, map }) => {
+const MapSelect = ({ setMap, winnerPhase, map }) => {
    const [hoverImg, setHoverImg] = useState('');
    const [modalClass, setModalClass] = useState('modal');
    const [name, setName] = useState('');
@@ -11,7 +11,7 @@ const MapSelect = ({ setMap, disabled, map }) => {
       if (map) {
          setSelectedMap(map.selectedMap);
       }
-      console.log(map);
+      // console.log(map);
    }, [map]);
 
    const onHover = e => {
@@ -38,7 +38,7 @@ const MapSelect = ({ setMap, disabled, map }) => {
                   onMouseEnter={onHover}
                   onMouseLeave={onLeave}
                   onClick={() => {
-                     if (disabled) return null;
+                     if (!winnerPhase) return null;
                      setSelectedMap('pos1');
                      setMap({ name: 'AGITATED', selectedMap: 'pos1' });
                   }}
@@ -50,7 +50,7 @@ const MapSelect = ({ setMap, disabled, map }) => {
                   onMouseEnter={onHover}
                   onMouseLeave={onLeave}
                   onClick={() => {
-                     if (disabled) return null;
+                     if (!winnerPhase) return null;
                      setSelectedMap('pos2');
                      setMap({ name: 'AGITATED', selectedMap: 'pos2' });
                   }}
@@ -62,9 +62,9 @@ const MapSelect = ({ setMap, disabled, map }) => {
                   onMouseEnter={onHover}
                   onMouseLeave={onLeave}
                   onClick={() => {
-                     if (disabled) return null;
+                     if (!winnerPhase) return null;
                      setSelectedMap('pos3');
-                     setMap({ name: 'AGITATED', selectedMap: 'pos1' });
+                     setMap({ name: 'AGITATED', selectedMap: 'pos3' });
                   }}
                />
             </div>
