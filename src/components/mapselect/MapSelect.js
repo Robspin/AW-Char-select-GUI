@@ -1,11 +1,18 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import './mapselect.css';
 
-const MapSelect = () => {
+const MapSelect = ({ setMap, disabled, map }) => {
    const [hoverImg, setHoverImg] = useState('');
    const [modalClass, setModalClass] = useState('modal');
    const [name, setName] = useState('');
    const [selectedMap, setSelectedMap] = useState('map');
+
+   useEffect(() => {
+      if (map) {
+         setSelectedMap(map.selectedMap);
+      }
+      console.log(map);
+   }, [map]);
 
    const onHover = e => {
       setHoverImg(e.target.src);
@@ -25,28 +32,40 @@ const MapSelect = () => {
             <h3>SELECT MAP</h3>
             <div className='map-container'>
                <img
-                  className={selectedMap === 'map pos1' ? 'map pos' : 'map'}
+                  className={selectedMap === 'pos1' ? 'map pos' : 'map'}
                   src={require('../../images/maps/1.PNG')}
                   alt='AGITATED'
                   onMouseEnter={onHover}
                   onMouseLeave={onLeave}
-                  onClick={() => setSelectedMap('map pos1')}
+                  onClick={() => {
+                     if (disabled) return null;
+                     setSelectedMap('pos1');
+                     setMap({ name: 'AGITATED', selectedMap: 'pos1' });
+                  }}
                />
                <img
-                  className={selectedMap === 'map pos2' ? 'map pos' : 'map'}
+                  className={selectedMap === 'pos2' ? 'map pos' : 'map'}
                   src={require('../../images/maps/2.PNG')}
                   alt='RAINBOW SYMPHONY'
                   onMouseEnter={onHover}
                   onMouseLeave={onLeave}
-                  onClick={() => setSelectedMap('map pos2')}
+                  onClick={() => {
+                     if (disabled) return null;
+                     setSelectedMap('pos2');
+                     setMap({ name: 'AGITATED', selectedMap: 'pos2' });
+                  }}
                />
                <img
-                  className={selectedMap === 'map pos3' ? 'map pos' : 'map'}
+                  className={selectedMap === 'pos3' ? 'map pos' : 'map'}
                   src={require('../../images/maps/3.PNG')}
                   alt='SOTHIS'
                   onMouseEnter={onHover}
                   onMouseLeave={onLeave}
-                  onClick={() => setSelectedMap('map pos3')}
+                  onClick={() => {
+                     if (disabled) return null;
+                     setSelectedMap('pos3');
+                     setMap({ name: 'AGITATED', selectedMap: 'pos1' });
+                  }}
                />
             </div>
          </div>

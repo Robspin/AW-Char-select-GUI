@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import CoinFlip from './steps/CoinFlip';
 import WinnerChoose from './steps/WinnerChoose';
+import LoserChoose from './steps/LoserChoose';
 
 const App = () => {
    const [players, setPlayers] = useState({
@@ -10,6 +11,8 @@ const App = () => {
    });
    const [winner, setWinner] = useState(null);
    const [page, setPage] = useState('winnerchoose');
+   const [map, setMap] = useState(false);
+   const [winnerCO, setWinnerCO] = useState(false);
 
    return (
       <div className='app'>
@@ -22,7 +25,23 @@ const App = () => {
             />
          ) : null}
          {page === 'winnerchoose' ? (
-            <WinnerChoose players={players} winner={winner} setPage={setPage} />
+            <WinnerChoose
+               setWinnerCO={setWinnerCO}
+               players={players}
+               winner={winner}
+               setPage={setPage}
+               setMap={setMap}
+               map={map}
+            />
+         ) : null}
+         {page === 'loserchoose' ? (
+            <LoserChoose
+               winnerCO={winnerCO}
+               players={players}
+               winner={winner}
+               setPage={setPage}
+               map={map}
+            />
          ) : null}
       </div>
    );

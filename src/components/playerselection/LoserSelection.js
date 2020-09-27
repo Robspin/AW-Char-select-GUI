@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './playerselection.css';
 
-const PlayerSelection = ({
+const LoserSelection = ({
    players,
    setText,
    winner,
@@ -32,6 +32,7 @@ const PlayerSelection = ({
       }
       setWinnerColor(current);
       setColorModalShow('hide');
+      console.log(123);
    };
 
    const colorHandlerLoser = e => {
@@ -47,10 +48,7 @@ const PlayerSelection = ({
       <div className='selection-container'>
          <div className='flex'>
             <h4>{winner}</h4>
-            <div
-               className={`color winner ${winnerColor}`}
-               onClick={() => setColorModalShow('show-winner')}
-            />
+            <div className={`color winner ${winnerColor}`} />
             <div
                className={
                   colorModalShow === 'show-winner'
@@ -99,4 +97,4 @@ const PlayerSelection = ({
    );
 };
 
-export default PlayerSelection;
+export default LoserSelection;

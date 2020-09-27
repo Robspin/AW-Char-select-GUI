@@ -24,18 +24,22 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO }) => {
             <img
                src={require('../../images/COS/Hachi0.png')}
                alt='hachi'
-               className={clickedCO === 'hachi' ? 'CO hachi' : 'CO'}
+               className={clickedCO.name === 'hachi' ? 'CO hachi' : 'CO'}
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
-               onClick={() => setClickedCO('hachi')}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'hachi' })
+               }
             />
             <img
                src={require('../../images/COS/Sensei0.png')}
                alt='sensei'
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
-               className={clickedCO === 'sensei' ? 'CO sensei' : 'CO'}
-               onClick={() => setClickedCO('sensei')}
+               className={clickedCO.name === 'sensei' ? 'CO sensei' : 'CO'}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'sensei' })
+               }
             />
          </div>
          <div className='row'>
@@ -47,40 +51,50 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO }) => {
             <img
                src={require('../../images/COS/Rachel0.png')}
                alt='rachel'
-               className={clickedCO === 'rachel' ? 'CO rachel' : 'CO'}
-               onClick={() => setClickedCO('rachel')}
+               className={clickedCO.name === 'rachel' ? 'CO rachel' : 'CO'}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'rachel' })
+               }
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
             />
             <img
                src={require('../../images/COS/Colin0.png')}
                alt='colin'
-               className={clickedCO === 'colin' ? 'CO colin' : 'CO'}
-               onClick={() => setClickedCO('colin')}
+               className={clickedCO.name === 'colin' ? 'CO colin' : 'CO'}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'colin' })
+               }
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
             />
             <img
                src={require('../../images/COS/Kanbei0.png')}
                alt='kanbei'
-               className={clickedCO === 'kanbei' ? 'CO kanbei' : 'CO'}
-               onClick={() => setClickedCO('kanbei')}
+               className={clickedCO.name === 'kanbei' ? 'CO kanbei' : 'CO'}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'kanbei' })
+               }
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
             />
             <img
                src={require('../../images/COS/Eagle0.png')}
                alt='eagle'
-               className={clickedCO === 'eagle' ? 'CO eagle' : 'CO'}
-               onClick={() => setClickedCO('eagle')}
+               className={clickedCO.name === 'eagle' ? 'CO eagle' : 'CO'}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'eagle' })
+               }
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
             />
             <img
                src={require('../../images/COS/Javier0.png')}
                alt='javier'
-               className={clickedCO === 'javier' ? 'CO javier' : 'CO'}
-               onClick={() => setClickedCO('javier')}
+               className={clickedCO.name === 'javier' ? 'CO javier' : 'CO'}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'javier' })
+               }
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
             />
@@ -95,48 +109,50 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO }) => {
             <img
                src={require('../../images/COS/Sami0.png')}
                alt='sami'
-               className={clickedCO === 'sami' ? 'CO sami' : 'CO'}
-               onClick={() => setClickedCO('sami')}
+               className={clickedCO.name === 'sami' ? 'CO sami' : 'CO'}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'sami' })
+               }
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
             />
             <img
                src={require('../../images/COS/VonBolt0.png')}
                alt='vonbolt'
-               className={clickedCO === 'vonbolt' ? 'CO vonbolt' : 'CO'}
-               onClick={() => setClickedCO('vonbolt')}
+               className={clickedCO.name === 'vonbolt' ? 'CO vonbolt' : 'CO'}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'vonbolt' })
+               }
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
             />
             <img
                src={require('../../images/COS/Kindle0.png')}
                alt='kindle'
-               className={clickedCO === 'kindle' ? 'CO kindle' : 'CO'}
-               onClick={() => setClickedCO('kindle')}
+               className={clickedCO.name === 'kindle' ? 'CO kindle' : 'CO'}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'kindle' })
+               }
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
             />
             <img
                src={require('../../images/COS/Hawke0.png')}
                alt='hawke'
-               className={clickedCO === 'hawke' ? 'CO hawke' : 'CO'}
-               onClick={() => setClickedCO('hawke')}
-               onMouseEnter={enterHandler}
-               onMouseLeave={leaveHandler}
-            />
-            <img
-               src={require('../../images/COS/Drake0.png')}
-               alt='drake'
-               className={clickedCO === 'drake' ? 'CO drake' : 'CO'}
-               onClick={() => setClickedCO('drake')}
+               className={clickedCO.name === 'hawke' ? 'CO hawke' : 'CO'}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'hawke' })
+               }
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
             />
             <img
                src={require('../../images/COS/Nell0.png')}
                alt='nell'
-               className={clickedCO === 'nell' ? 'CO nelll' : 'CO'}
-               onClick={() => setClickedCO('nell')}
+               className={clickedCO.name === 'nell' ? 'CO nelll' : 'CO'}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'nell' })
+               }
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
             />
@@ -148,36 +164,64 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO }) => {
                alt='b-tier'
             />
             <img
-               src={require('../../images/COS/Sonja0.png')}
-               alt='sonja'
-               className={clickedCO === 'sonja' ? 'CO sonja' : 'CO'}
+               src={require('../../images/COS/Jake0.png')}
+               alt='jake'
+               className={clickedCO.name === 'jake' ? 'CO jake' : 'CO'}
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
-               onClick={() => setClickedCO('sonja')}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'jake' })
+               }
+            />
+            <img
+               src={require('../../images/COS/Sonja0.png')}
+               alt='sonja'
+               className={clickedCO.name === 'sonja' ? 'CO sonja' : 'CO'}
+               onMouseEnter={enterHandler}
+               onMouseLeave={leaveHandler}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'sonja' })
+               }
             />
             <img
                src={require('../../images/COS/Jess0.png')}
                alt='jess'
-               className={clickedCO === 'jess' ? 'CO jess' : 'CO'}
+               className={clickedCO.name === 'jess' ? 'CO jess' : 'CO'}
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
-               onClick={() => setClickedCO('jess')}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'jess' })
+               }
             />
             <img
                src={require('../../images/COS/Max0.png')}
                alt='max'
-               className={clickedCO === 'max' ? 'CO max' : 'CO'}
+               className={clickedCO.name === 'max' ? 'CO max' : 'CO'}
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
-               onClick={() => setClickedCO('max')}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'max' })
+               }
+            />
+            <img
+               src={require('../../images/COS/Drake0.png')}
+               alt='drake'
+               className={clickedCO.name === 'drake' ? 'CO drake' : 'CO'}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'drake' })
+               }
+               onMouseEnter={enterHandler}
+               onMouseLeave={leaveHandler}
             />
             <img
                src={require('../../images/COS/Andy0.png')}
                alt='andy'
-               className={clickedCO === 'andy' ? 'CO andy' : 'CO'}
+               className={clickedCO.name === 'andy' ? 'CO andy' : 'CO'}
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
-               onClick={() => setClickedCO('andy')}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'andy' })
+               }
             />
          </div>
          <div className='row'>
@@ -186,45 +230,46 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO }) => {
                src={require('../../images/Tiers/C.png')}
                alt='c-tier'
             />
-            <img
-               src={require('../../images/COS/Grimm0.png')}
-               alt='grimm'
-               className={clickedCO === 'grimm' ? 'CO grimm' : 'CO'}
-               onMouseEnter={enterHandler}
-               onMouseLeave={leaveHandler}
-               onClick={() => setClickedCO('grimm')}
-            />
+
             <img
                src={require('../../images/COS/Sasha0.png')}
                alt='sasha'
-               className={clickedCO === 'sasha' ? 'CO sasha' : 'CO'}
+               className={clickedCO.name === 'sasha' ? 'CO sasha' : 'CO'}
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
-               onClick={() => setClickedCO('sasha')}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'sasha' })
+               }
             />
             <img
                src={require('../../images/COS/Flak0.png')}
                alt='flak'
-               className={clickedCO === 'flak' ? 'CO flak' : 'CO'}
+               className={clickedCO.name === 'flak' ? 'CO flak' : 'CO'}
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
-               onClick={() => setClickedCO('flak')}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'flak' })
+               }
             />
             <img
                src={require('../../images/COS/Jugger0.png')}
                alt='jugger'
-               className={clickedCO === 'jugger' ? 'CO jugger' : 'CO'}
+               className={clickedCO.name === 'jugger' ? 'CO jugger' : 'CO'}
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
-               onClick={() => setClickedCO('jugger')}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'jugger' })
+               }
             />
             <img
                src={require('../../images/COS/Grit0.png')}
                alt='grit'
-               className={clickedCO === 'grit' ? 'CO grit' : 'CO'}
+               className={clickedCO.name === 'grit' ? 'CO grit' : 'CO'}
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
-               onClick={() => setClickedCO('grit')}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'grit' })
+               }
             />
          </div>
          <div className='row'>
@@ -234,36 +279,44 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO }) => {
                alt='d-tier'
             />
             <img
-               src={require('../../images/COS/Jake0.png')}
-               alt='jake'
-               className={clickedCO === 'jake' ? 'CO jake' : 'CO'}
+               src={require('../../images/COS/Grimm0.png')}
+               alt='grimm'
+               className={clickedCO.name === 'grimm' ? 'CO grimm' : 'CO'}
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
-               onClick={() => setClickedCO('jake')}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'grimm' })
+               }
             />
             <img
                src={require('../../images/COS/Lash0.png')}
                alt='lash'
-               className={clickedCO === 'lash' ? 'CO lash' : 'CO'}
+               className={clickedCO.name === 'lash' ? 'CO lash' : 'CO'}
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
-               onClick={() => setClickedCO('lash')}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'lash' })
+               }
             />
             <img
                src={require('../../images/COS/Adder0.png')}
                alt='adder'
-               className={clickedCO === 'adder' ? 'CO adder' : 'CO'}
+               className={clickedCO.name === 'adder' ? 'CO adder' : 'CO'}
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
-               onClick={() => setClickedCO('adder')}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'adder' })
+               }
             />
             <img
                src={require('../../images/COS/Koal0.png')}
                alt='koal  '
-               className={clickedCO === 'koal' ? 'CO koal' : 'CO'}
+               className={clickedCO.name === 'koal' ? 'CO koal' : 'CO'}
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
-               onClick={() => setClickedCO('koal')}
+               onClick={e =>
+                  setClickedCO({ source: e.target.src, name: 'koal' })
+               }
             />
          </div>
       </div>
