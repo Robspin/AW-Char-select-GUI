@@ -1,0 +1,34 @@
+.nell {
+   position: absolute;
+   background: url('../../images/Nell-talk.png') no-repeat;
+   background-size: cover;
+   bottom: 20px;
+   width: 720px;
+   height: 144px;
+}
+
+.textbox {
+   width: 100%;
+   height: 100%;
+   padding: 0px 50px 20px 160px;
+}
+
+.pointer {
+   width: 24px;
+   position: absolute;
+   bottom: 20px;
+   right: 40px;
+   animation: pointer 1s linear infinite;
+}
+
+@keyframes pointer {
+   0% {
+      transform: translateY(0);
+   }
+   50% {
+      transform: translateY(3px);
+   }
+   100% {
+      transform: translateY(0);
+   }
+}

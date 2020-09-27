@@ -1,0 +1,134 @@
+.selection-container {
+   position: absolute;
+   bottom: 10px;
+   right: 120px;
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   text-align: center;
+   width: 450px;
+   height: 300px;
+}
+
+.player {
+   height: 200px;
+   width: 200px;
+   border: 4px solid black;
+   margin-right: 20px;
+   background-color: #fbf2c1;
+}
+
+.color {
+   height: 24px;
+   width: 24px;
+   position: absolute;
+   border: 3px solid black;
+   margin-left: 175px;
+   margin-top: -30px;
+}
+
+.red {
+   border: 4px solid red;
+}
+
+.blue {
+   border: 4px solid blue;
+}
+
+.yellow {
+   border: 4px solid yellow;
+}
+
+.green {
+   border: 4px solid green;
+}
+.black {
+   border: 4px solid gray;
+}
+
+.color.red {
+   border: 3px solid black;
+   background-color: red;
+}
+
+.color.blue {
+   border: 3px solid black;
+   background-color: blue;
+}
+
+.color.yellow {
+   border: 3px solid black;
+   background-color: yellow;
+}
+
+.color.green {
+   border: 3px solid black;
+   background-color: green;
+}
+
+.color.black {
+   border: 3px solid black;
+   background-color: gray;
+}
+
+.color-modal {
+   display: none;
+   height: 100px;
+   width: 24px;
+   position: absolute;
+   border: 3px solid black;
+   margin-left: 175px;
+   margin-top: -110px;
+}
+
+.color-modal.loserM.modal-show {
+   display: flex;
+}
+
+.color-modal.winnerM.modal-show {
+   display: flex;
+}
+
+.sbox {
+   height: 24px;
+   width: 24px;
+   position: absolute;
+   border: 3px solid black;
+   margin-left: -3px;
+   margin-top: -3px;
+}
+
+.sbox.red {
+   background-color: red;
+   margin-top: 78px;
+}
+
+.sbox.blue {
+   background-color: blue;
+   margin-top: 58px;
+}
+
+.sbox.yellow {
+   background-color: yellow;
+   margin-top: 39px;
+}
+
+.sbox.green {
+   background-color: green;
+   margin-top: 18px;
+}
+
+.sbox.black {
+   background-color: grey;
+}
+
+.empty {
+   display: none;
+}
+
+.COSelect {
+   display: flexbox;
+   height: 100%;
+   width: 100%;
+   background-color: #fbf2c1;
+}

@@ -1,0 +1,80 @@
+.tierlist-grid {
+   margin: 30px 0 0 30px;
+   display: grid;
+   grid-template-columns: repeat(6, 60px);
+   grid-gap: 20px;
+   width: 600px;
+   height: 500px;
+   text-align: center;
+}
+
+.row {
+   background: rgb(180, 170, 170, 0.5);
+   height: 500px;
+   width: 50px;
+}
+
+.tier-img {
+   width: 105px;
+
+   margin-left: -28px;
+   margin-top: -12px;
+}
+
+.letter {
+   padding-bottom: 0;
+   width: 50px;
+   margin-left: 0;
+   margin-top: -12px;
+}
+
+.CO {
+   margin-left: -8px;
+   margin-top: 3px;
+   width: 60px;
+   background-color: #fbf2c1;
+   border: 3px solid black;
+   transition: transform 0.1s linear;
+}
+
+.CO:hover {
+   border: 3px solid #639bff;
+   transform: scale(1.05);
+}
+
+/* CO Selection */
+
+.CO.hachi,
+.CO.adder,
+.CO.andy,
+.CO.sensei,
+.CO.candy,
+.CO.rachel,
+.CO.olaf,
+.CO.drake,
+.CO.nelll,
+.CO.grit,
+.CO.vonbolt,
+.CO.sami,
+.CO.sonja,
+.CO.sasha,
+.CO.kanbei,
+.CO.kindle,
+.CO.javier,
+.CO.jess,
+.CO.lash,
+.CO.flak,
+.CO.jugger,
+.CO.hawke,
+.CO.koal,
+.CO.grimm,
+.CO.jake,
+.CO.colin,
+.CO.max,
+.CO.eagle {
+   border: 3px solid #ac3232;
+}
+
+.CO.andy {
+   border: 3px solid #ac3232;
+}
