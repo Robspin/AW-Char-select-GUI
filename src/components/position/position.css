@@ -1,0 +1,28 @@
+.position-container {
+   position: absolute;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   height: 100px;
+   width: 300px;
+   bottom: 250px;
+   right: 205px;
+}
+
+.switch {
+   width: 40px;
+   cursor: pointer;
+}
+
+.switch:hover {
+   opacity: 0.8;
+}
+
+.p1 {
+   width: 50px;
+   margin-right: 7px;
+}
+
+.p2 {
+   width: 57px;
+}

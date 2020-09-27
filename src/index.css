@@ -21,6 +21,7 @@ body {
    background-size: cover;
    font-family: 'advance-wars-2-gba-webfont';
    font-size: 35px;
+   overflow: hidden;
 }
 
 .app {
@@ -33,4 +34,11 @@ body {
    text-align: center;
    justify-content: space-between;
    align-items: center;
+}
+
+.nell-full {
+   position: absolute;
+   width: 330px;
+   right: 190px;
+   bottom: 10px;
 }

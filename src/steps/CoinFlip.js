@@ -16,6 +16,11 @@ const CoinFlip = ({ setPlayers, winner, setWinner, setPage }) => {
             setWinner={setWinner}
             setText={setText}
          />
+         <img
+            className='nell-full'
+            src={require('../images/Nell-full.png')}
+            alt='nell-full'
+         />
          <Nell text={text} />
          {winner && <NextButton onClick={() => setPage('winnerchoose')} />}
       </Fragment>

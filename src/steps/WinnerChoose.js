@@ -5,6 +5,7 @@ import TierList from '../components/tierlist/TierList';
 import MapSelect from '../components/mapselect/MapSelect';
 import PlayerSelection from '../components/playerselection/PlayerSelection';
 import NextButton from '../components/next-button/NextButton';
+import Position from '../components/position/Position';
 
 const WinnerChoose = ({ players, winner, setMap, map }) => {
    const [text, setText] = useState(
@@ -12,7 +13,6 @@ const WinnerChoose = ({ players, winner, setMap, map }) => {
    );
    const [selectedCO, setSelectedCO] = useState('');
    const [clickedCO, setClickedCO] = useState(false);
-   const [clickedCO2, setClickedCO2] = useState(false);
    const [winnerPhase, setWinnerPhase] = useState(true);
 
    useEffect(() => {
@@ -21,7 +21,13 @@ const WinnerChoose = ({ players, winner, setMap, map }) => {
             `${winner}, please pick CO, MAP and COLOR. You can click NEXT STEP when ready...`
          );
       }
-   }, [clickedCO, map, winner, winnerPhase]);
+      if (clickedCO && winnerPhase === false) {
+         setText(`${
+            players.player1 === winner ? players.player2 : players.player1
+         }, please choose CO, COLOR and P1 or P2...
+            When you are ready, ask Krys or a mod to set it up...`);
+      }
+   }, [clickedCO, map, winner, winnerPhase, players]);
 
    return (
       <div>
@@ -30,9 +36,7 @@ const WinnerChoose = ({ players, winner, setMap, map }) => {
                winnerPhase={winnerPhase}
                setSelectedCO={setSelectedCO}
                setClickedCO={setClickedCO}
-               setClickedCO2={setClickedCO2}
                clickedCO={clickedCO}
-               clickedCO2={clickedCO2}
             />
             <MapSelect setMap={setMap} map={map} winnerPhase={winnerPhase} />
          </div>
@@ -43,14 +47,14 @@ const WinnerChoose = ({ players, winner, setMap, map }) => {
             winner={winner}
             selectedCO={selectedCO}
             clickedCO={clickedCO}
-            clickedCO2={clickedCO2}
          />
          <Nell text={text} />
-         {map && clickedCO ? (
+         {winnerPhase === false ? <Position /> : null}
+         {map && clickedCO && winnerPhase === true ? (
             <NextButton
                onClick={() => {
                   setWinnerPhase(false);
-                  // setWinnerCO(clickedCO);
+
                   setText(
                      `${
                         players.player1 === winner

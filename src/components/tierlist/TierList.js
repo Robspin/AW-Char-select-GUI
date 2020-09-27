@@ -1,27 +1,15 @@
 import React from 'react';
 import './tierlist.css';
 
-const TierList = ({
-   setSelectedCO,
-   setClickedCO,
-   clickedCO,
-   winnerPhase,
-   setClickedCO2
-}) => {
+const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
    const enterHandler = e => {
       setSelectedCO(e.target.src);
    };
 
    const leaveHandler = e => {
-      // if (winnerPhase === true) {
       if (clickedCO === e.target.alt) {
          return null;
       }
-      // } else {
-      //    if (clickedCO2 === e.target.alt) {
-      //       return null;
-      //    }
-      // }
       setSelectedCO('');
    };
 
@@ -54,11 +42,7 @@ const TierList = ({
                onMouseLeave={leaveHandler}
                className={clickedCO.name === 'sensei' ? 'CO sensei' : 'CO'}
                onClick={e => {
-                  if (winnerPhase === true) {
-                     setClickedCO({ source: e.target.src, name: 'sensei' });
-                  } else {
-                     setClickedCO2({ source: e.target.src, name: 'sensei' });
-                  }
+                  setClickedCO({ source: e.target.src, name: 'sensei' });
                }}
             />
          </div>
