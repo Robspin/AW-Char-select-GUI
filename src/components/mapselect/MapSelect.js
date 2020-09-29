@@ -58,7 +58,7 @@ const MapSelect = ({ setMap, winnerPhase, map }) => {
                <img
                   className={selectedMap === 'pos3' ? 'map pos' : 'map'}
                   src={require('../../images/maps/3.PNG')}
-                  alt='SOTHIS'
+                  alt='ATLAS'
                   onMouseEnter={onHover}
                   onMouseLeave={onLeave}
                   onClick={() => {

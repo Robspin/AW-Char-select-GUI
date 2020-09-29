@@ -1,9 +1,13 @@
 import React from 'react';
 import './tierlist.css';
+import soundfile from '../../sounds/song103.wav';
 
 const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
+   const soundEffect = new Audio(soundfile);
+
    const enterHandler = e => {
       setSelectedCO(e.target.src);
+      soundEffect.play();
    };
 
    const leaveHandler = e => {
