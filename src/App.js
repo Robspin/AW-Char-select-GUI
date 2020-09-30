@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import CoinFlip from './steps/CoinFlip';
 import WinnerChoose from './steps/WinnerChoose';
+import FinalPage from './steps/FinalPage';
 import Player from './components/player/Player';
 import soundtrack from './sounds/Jake-Theme.mp3';
 
@@ -13,6 +14,7 @@ const App = () => {
    const [winner, setWinner] = useState(null);
    const [page, setPage] = useState('coinflip');
    const [map, setMap] = useState(false);
+   const [complete, setComplete] = useState({});
 
    return (
       <div className='app'>
@@ -23,6 +25,7 @@ const App = () => {
                winner={winner}
                setWinner={setWinner}
                setPlayers={setPlayers}
+               setComplete={setComplete}
             />
          ) : null}
          {page === 'winnerchoose' ? (
@@ -31,8 +34,12 @@ const App = () => {
                winner={winner}
                setMap={setMap}
                map={map}
+               complete={complete}
+               setComplete={setComplete}
+               setPage={setPage}
             />
          ) : null}
+         {page === 'finalpage' ? <FinalPage complete={complete} /> : null}
       </div>
    );
 };

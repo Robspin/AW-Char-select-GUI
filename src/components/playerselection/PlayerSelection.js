@@ -7,14 +7,19 @@ const PlayerSelection = ({
    winner,
    selectedCO,
    clickedCO,
-   winnerPhase
+   winnerPhase,
+   winnerColor,
+   setWinnerColor,
+   loserColor,
+   setLoserColor
 }) => {
    const [colorModalShow, setColorModalShow] = useState('hide');
-   const [winnerColor, setWinnerColor] = useState('red');
-   const [loserColor, setLoserColor] = useState('blue');
 
    const [imgURL, setImgUrl] = useState('');
    const [imgURL2, setImgUrl2] = useState('');
+
+   const player2 =
+      winner === players.player1 ? players.player2 : players.player1;
 
    useEffect(() => {
       if (winnerPhase === true) {
@@ -86,9 +91,7 @@ const PlayerSelection = ({
             </div>
          </div>
          <div className='flex'>
-            <h4>
-               {winner === players.player1 ? players.player2 : players.player1}
-            </h4>
+            <h4>{player2}</h4>
             <div
                className={`color loser ${loserColor}`}
                onClick={() => setColorModalShow('show-loser')}

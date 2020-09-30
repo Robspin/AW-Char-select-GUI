@@ -32,39 +32,39 @@ const MapSelect = ({ setMap, winnerPhase, map }) => {
             <h3>SELECT MAP</h3>
             <div className='map-container'>
                <img
-                  className={selectedMap === 'pos1' ? 'map pos' : 'map'}
+                  className={selectedMap === '1' ? 'map pos' : 'map'}
                   src={require('../../images/maps/1.PNG')}
                   alt='AGITATED'
                   onMouseEnter={onHover}
                   onMouseLeave={onLeave}
                   onClick={() => {
                      if (!winnerPhase) return null;
-                     setSelectedMap('pos1');
-                     setMap({ name: 'AGITATED', selectedMap: 'pos1' });
+                     setSelectedMap('1');
+                     setMap({ name: 'AGITATED', selectedMap: '1' });
                   }}
                />
                <img
-                  className={selectedMap === 'pos2' ? 'map pos' : 'map'}
+                  className={selectedMap === '2' ? 'map pos' : 'map'}
                   src={require('../../images/maps/2.PNG')}
                   alt='RAINBOW SYMPHONY'
                   onMouseEnter={onHover}
                   onMouseLeave={onLeave}
                   onClick={() => {
                      if (!winnerPhase) return null;
-                     setSelectedMap('pos2');
-                     setMap({ name: 'AGITATED', selectedMap: 'pos2' });
+                     setSelectedMap('2');
+                     setMap({ name: 'RAINBOW SYMPHONY', selectedMap: '2' });
                   }}
                />
                <img
-                  className={selectedMap === 'pos3' ? 'map pos' : 'map'}
+                  className={selectedMap === '3' ? 'map pos' : 'map'}
                   src={require('../../images/maps/3.PNG')}
                   alt='ATLAS'
                   onMouseEnter={onHover}
                   onMouseLeave={onLeave}
                   onClick={() => {
                      if (!winnerPhase) return null;
-                     setSelectedMap('pos3');
-                     setMap({ name: 'AGITATED', selectedMap: 'pos3' });
+                     setSelectedMap('3');
+                     setMap({ name: 'ATLAS', selectedMap: '3' });
                   }}
                />
             </div>

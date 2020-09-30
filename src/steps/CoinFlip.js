@@ -6,7 +6,7 @@ import NextButton from '../components/next-button/NextButton';
 
 const CoinFlip = ({ setPlayers, winner, setWinner, setPage }) => {
    const [text, setText] = useState(
-      'Please fill in the names and flip the coin...'
+      'Krys or a mod will perform the coinflip...'
    );
 
    return (
@@ -22,7 +22,13 @@ const CoinFlip = ({ setPlayers, winner, setWinner, setPage }) => {
             alt='nell-full'
          />
          <Nell text={text} />
-         {winner && <NextButton onClick={() => setPage('winnerchoose')} />}
+         {winner && (
+            <NextButton
+               onClick={() => {
+                  setPage('winnerchoose');
+               }}
+            />
+         )}
       </Fragment>
    );
 };

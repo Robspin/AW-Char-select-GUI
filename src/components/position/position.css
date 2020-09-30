@@ -4,13 +4,16 @@
    align-items: center;
    justify-content: space-between;
    height: 100px;
-   width: 300px;
+   width: 290px;
    bottom: 250px;
-   right: 205px;
+   right: 195px;
 }
 
 .switch {
    width: 40px;
+   background-color: rgb(245, 245, 63);
+   border: 3px solid black;
+   padding: 3px;
    cursor: pointer;
 }
 

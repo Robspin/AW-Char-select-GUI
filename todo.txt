@@ -1,13 +1,13 @@
 ~~ todo ~~
 
-- Display author map info
-- Add ability to add maps then make it so it randomly picks 3 and add shuffle btn
+- Add extra scene with clearly visible data and a timer
 - Tierlists limited
+- Add ability to add maps then make it so it randomly picks 3 and add shuffle btn
+- Display author map info
 - Javier
 - Make it easy to adjust things afterwards
 
    extra: 
-- Add extra scene with clearly visible data and a timer
 - Music (and sounds)
 - Moving background
 - Actual_Krys logo?

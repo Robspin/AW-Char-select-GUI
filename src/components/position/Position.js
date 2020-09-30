@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './position.css';
 
-const Position = () => {
-   const [p1, setP1] = useState(true);
+const Position = ({ p1, setP1 }) => {
    return (
       <div className='position-container'>
          <img

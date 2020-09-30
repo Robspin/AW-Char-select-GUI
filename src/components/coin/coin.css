@@ -67,10 +67,10 @@ button:focus {
    position: absolute;
 }
 
-.border {
+/* .border {
    border: 5px solid black;
    background: url(../../images/coin-bg.png);
-}
+} */
 
 .heads {
    background-image: url('../../images/heads.jpg');
