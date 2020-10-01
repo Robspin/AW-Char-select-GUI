@@ -79,3 +79,8 @@
 .CO.andy {
    border: 3px solid #ac3232;
 }
+
+.disabled {
+   filter: brightness(50%);
+   pointer-events: none;
+}

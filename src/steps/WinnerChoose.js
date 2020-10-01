@@ -24,6 +24,7 @@ const WinnerChoose = ({
    const [winnerPhase, setWinnerPhase] = useState(true);
    const [winnerColor, setWinnerColor] = useState('red');
    const [loserColor, setLoserColor] = useState('blue');
+   const [disabledTiers, setDisabledTiers] = useState('');
    const [p1, setP1] = useState(true);
 
    const player2 =
@@ -58,6 +59,7 @@ const WinnerChoose = ({
       <div>
          <div className='top-container'>
             <TierList
+               disabledTiers={disabledTiers}
                winnerPhase={winnerPhase}
                setSelectedCO={setSelectedCO}
                setClickedCO={setClickedCO}
@@ -82,8 +84,9 @@ const WinnerChoose = ({
          {map && clickedCO && winnerPhase === true ? (
             <NextButton
                onClick={() => {
+                  console.log(clickedCO);
+                  setDisabledTiers(clickedCO.tier);
                   setWinnerPhase(false);
-
                   setText(
                      `${
                         players.player1 === winner

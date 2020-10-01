@@ -1,13 +1,10 @@
 ~~ todo ~~
 
-- Add extra scene with clearly visible data and a timer
-- Tierlists limited
-- Add ability to add maps then make it so it randomly picks 3 and add shuffle btn
+- Improve map function
 - Display author map info
 - Javier
 - Make it easy to adjust things afterwards
 
    extra: 
 - Music (and sounds)
-- Moving background
 - Actual_Krys logo?

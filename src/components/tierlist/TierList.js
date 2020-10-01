@@ -2,17 +2,13 @@ import React from 'react';
 import './tierlist.css';
 import soundfile from '../../sounds/song103.wav';
 
-const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
+const TierList = ({
+   setSelectedCO,
+   setClickedCO,
+   clickedCO,
+   disabledTiers
+}) => {
    const soundEffect = new Audio(soundfile);
-
-   // useEffect(() => {
-   //    const script = document.createElement('script');
-   //    script.src = '/static/libs/test.js';
-   //    script.async = true;
-   //    script.onload = () => this.scriptLoaded();
-
-   //    document.body.appendChild(script);
-   // }, []);
 
    const enterHandler = e => {
       setSelectedCO(e.target.src);
@@ -28,7 +24,17 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
 
    return (
       <div className='tierlist-grid'>
-         <div className='row'>
+         <div
+            className={
+               disabledTiers === 's' ||
+               disabledTiers === 'a' ||
+               disabledTiers === 'b' ||
+               disabledTiers === 'c' ||
+               disabledTiers === 'd'
+                  ? 'row disabled'
+                  : 'row'
+            }
+         >
             <img
                className='tier-img'
                src={require('../../images/Tiers/broken.png')}
@@ -40,13 +46,13 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                className={clickedCO.name === 'hachi' ? 'CO hachi' : 'CO'}
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
-               onClick={e => {
-                  if (winnerPhase === true) {
-                     setClickedCO({ source: e.target.src, name: 'hachi' });
-                  } else if (winnerPhase === false) {
-                     setClickedCO({ source: e.target.src, name: 'hachi' });
-                  }
-               }}
+               onClick={e =>
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'hachi',
+                     tier: 'op'
+                  })
+               }
             />
             <img
                src={require('../../images/COS/sensei0.png')}
@@ -55,11 +61,24 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                onMouseLeave={leaveHandler}
                className={clickedCO.name === 'sensei' ? 'CO sensei' : 'CO'}
                onClick={e => {
-                  setClickedCO({ source: e.target.src, name: 'sensei' });
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'sensei',
+                     tier: 'op'
+                  });
                }}
             />
          </div>
-         <div className='row'>
+         <div
+            className={
+               disabledTiers === 'a' ||
+               disabledTiers === 'b' ||
+               disabledTiers === 'c' ||
+               disabledTiers === 'd'
+                  ? 'row disabled'
+                  : 'row'
+            }
+         >
             <img
                className='tier-img letter'
                src={require('../../images/Tiers/S.png')}
@@ -70,7 +89,11 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                alt='rachel'
                className={clickedCO.name === 'rachel' ? 'CO rachel' : 'CO'}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'rachel' })
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'rachel',
+                     tier: 's'
+                  })
                }
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
@@ -80,7 +103,11 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                alt='colin'
                className={clickedCO.name === 'colin' ? 'CO colin' : 'CO'}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'colin' })
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'colin',
+                     tier: 's'
+                  })
                }
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
@@ -90,7 +117,11 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                alt='kanbei'
                className={clickedCO.name === 'kanbei' ? 'CO kanbei' : 'CO'}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'kanbei' })
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'kanbei',
+                     tier: 's'
+                  })
                }
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
@@ -100,7 +131,11 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                alt='eagle'
                className={clickedCO.name === 'eagle' ? 'CO eagle' : 'CO'}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'eagle' })
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'eagle',
+                     tier: 's'
+                  })
                }
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
@@ -110,13 +145,25 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                alt='javier'
                className={clickedCO.name === 'javier' ? 'CO javier' : 'CO'}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'javier' })
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'javier',
+                     tier: 's'
+                  })
                }
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
             />
          </div>
-         <div className='row'>
+         <div
+            className={
+               disabledTiers === 'b' ||
+               disabledTiers === 'c' ||
+               disabledTiers === 'd'
+                  ? 'row disabled'
+                  : 'row'
+            }
+         >
             {' '}
             <img
                className='tier-img letter'
@@ -128,7 +175,11 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                alt='sami'
                className={clickedCO.name === 'sami' ? 'CO sami' : 'CO'}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'sami' })
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'sami',
+                     tier: 'a'
+                  })
                }
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
@@ -138,7 +189,11 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                alt='vonbolt'
                className={clickedCO.name === 'vonbolt' ? 'CO vonbolt' : 'CO'}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'vonbolt' })
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'vonbolt',
+                     tier: 'a'
+                  })
                }
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
@@ -148,7 +203,11 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                alt='kindle'
                className={clickedCO.name === 'kindle' ? 'CO kindle' : 'CO'}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'kindle' })
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'kindle',
+                     tier: 'a'
+                  })
                }
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
@@ -158,7 +217,11 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                alt='hawke'
                className={clickedCO.name === 'hawke' ? 'CO hawke' : 'CO'}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'hawke' })
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'hawke',
+                     tier: 'a'
+                  })
                }
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
@@ -168,13 +231,23 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                alt='nell'
                className={clickedCO.name === 'nell' ? 'CO nelll' : 'CO'}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'nell' })
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'nell',
+                     tier: 'a'
+                  })
                }
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
             />
          </div>
-         <div className='row'>
+         <div
+            className={
+               disabledTiers === 'c' || disabledTiers === 'd'
+                  ? 'row disabled'
+                  : 'row'
+            }
+         >
             <img
                className='tier-img letter'
                src={require('../../images/Tiers/B.png')}
@@ -187,7 +260,11 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'jake' })
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'jake',
+                     tier: 'b'
+                  })
                }
             />
             <img
@@ -197,7 +274,11 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'sonja' })
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'sonja',
+                     tier: 'b'
+                  })
                }
             />
             <img
@@ -207,7 +288,11 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'jess' })
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'jess',
+                     tier: 'b'
+                  })
                }
             />
             <img
@@ -217,7 +302,7 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'max' })
+                  setClickedCO({ source: e.target.src, name: 'max', tier: 'b' })
                }
             />
             <img
@@ -225,7 +310,11 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                alt='drake'
                className={clickedCO.name === 'drake' ? 'CO drake' : 'CO'}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'drake' })
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'drake',
+                     tier: 'b'
+                  })
                }
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
@@ -237,11 +326,15 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'andy' })
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'andy',
+                     tier: 'b'
+                  })
                }
             />
          </div>
-         <div className='row'>
+         <div className={disabledTiers === 'd' ? 'row disabled' : 'row'}>
             <img
                className='tier-img letter'
                src={require('../../images/Tiers/C.png')}
@@ -255,7 +348,11 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'sasha' })
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'sasha',
+                     tier: 'c'
+                  })
                }
             />
             <img
@@ -265,7 +362,11 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'flak' })
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'flak',
+                     tier: 'c'
+                  })
                }
             />
             <img
@@ -275,7 +376,11 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'jugger' })
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'jugger',
+                     tier: 'c'
+                  })
                }
             />
             <img
@@ -285,7 +390,11 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'grit' })
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'grit',
+                     tier: 'c'
+                  })
                }
             />
          </div>
@@ -302,7 +411,11 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'grimm' })
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'grimm',
+                     tier: 'd'
+                  })
                }
             />
             <img
@@ -312,7 +425,11 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'lash' })
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'lash',
+                     tier: 'd'
+                  })
                }
             />
             <img
@@ -322,7 +439,11 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'adder' })
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'adder',
+                     tier: 'd'
+                  })
                }
             />
             <img
@@ -332,7 +453,11 @@ const TierList = ({ setSelectedCO, setClickedCO, clickedCO, winnerPhase }) => {
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
                onClick={e =>
-                  setClickedCO({ source: e.target.src, name: 'koal' })
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'koal',
+                     tier: 'd'
+                  })
                }
             />
          </div>
