@@ -60,25 +60,6 @@ const FinalPage = ({ complete }) => {
             </div>
          </div>
          <Timer />
-         {/* <p>{`
-      ${complete.player1}
-      ${complete.player1CO.name}
-      ${complete.player2}
-      ${complete.player2CO.name}
-      ${complete.map.name}
-      ${complete.player1Color}
-      ${complete.player2Color}
-      ${complete.p1}
-      
-      `}</p>
-         <img
-            src={require(`../images/COS/${complete.player1CO.name}0.png`)}
-            alt='player1 CO'
-         />
-         <img
-            src={require(`../images/COS/${complete.player2CO.name}0.png`)}
-            alt='player2 CO'
-         /> */}
       </div>
    );
 };

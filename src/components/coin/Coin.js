@@ -61,7 +61,7 @@ const Coin = ({ setText, setPlayers, setWinner }) => {
                <input type='text' onChange={e => setPlayer2(e.target.value)} />
             </div>
          </div>
-         <button id='flip' onClick={clickHandler}>
+         <button className='flip' onClick={clickHandler}>
             FLIP COIN
          </button>
          {/* <p>

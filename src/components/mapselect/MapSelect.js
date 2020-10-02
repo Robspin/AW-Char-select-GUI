@@ -57,7 +57,7 @@ const MapSelect = ({ setMap, winnerPhase, map }) => {
             <div className='inline'>
                <div />
                <h3>SELECT MAP</h3>
-               <button className='mapBtn' onClick={shuffle}>
+               <button className='mapBtn flip' onClick={shuffle}>
                   More
                </button>
             </div>

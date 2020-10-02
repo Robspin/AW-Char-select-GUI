@@ -254,20 +254,6 @@ const TierList = ({
                alt='b-tier'
             />
             <img
-               src={require('../../images/COS/jake0.png')}
-               alt='jake'
-               className={clickedCO.name === 'jake' ? 'CO jake' : 'CO'}
-               onMouseEnter={enterHandler}
-               onMouseLeave={leaveHandler}
-               onClick={e =>
-                  setClickedCO({
-                     source: e.target.src,
-                     name: 'jake',
-                     tier: 'b'
-                  })
-               }
-            />
-            <img
                src={require('../../images/COS/sonja0.png')}
                alt='sonja'
                className={clickedCO.name === 'sonja' ? 'CO sonja' : 'CO'}
@@ -340,7 +326,20 @@ const TierList = ({
                src={require('../../images/Tiers/C.png')}
                alt='c-tier'
             />
-
+            <img
+               src={require('../../images/COS/jake0.png')}
+               alt='jake'
+               className={clickedCO.name === 'jake' ? 'CO jake' : 'CO'}
+               onMouseEnter={enterHandler}
+               onMouseLeave={leaveHandler}
+               onClick={e =>
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'jake',
+                     tier: 'c'
+                  })
+               }
+            />
             <img
                src={require('../../images/COS/sasha0.png')}
                alt='sasha'
