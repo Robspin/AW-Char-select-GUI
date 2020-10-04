@@ -1,11 +1,4 @@
 ~~ todo ~~
 
-- Improve map function
-- Click map disable more btn
 - Display author map info
-- Javier
 - Make it easy to adjust things afterwards
-
-   extra: 
-- Music (and sounds)
-- Actual_Krys logo?

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import CoinFlip from './steps/CoinFlip';
-import WinnerChoose from './steps/WinnerChoose';
+import ChoosingPage from './steps/ChoosingPage';
 import FinalPage from './steps/FinalPage';
 import MusicPlayer from './components/musicplayer/MusicPlayer';
 
@@ -28,7 +28,7 @@ const App = () => {
             />
          ) : null}
          {page === 'winnerchoose' ? (
-            <WinnerChoose
+            <ChoosingPage
                players={players}
                winner={winner}
                setMap={setMap}

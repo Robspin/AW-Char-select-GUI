@@ -11,25 +11,43 @@ const useAudio = url => {
       playing ? audio.play() : audio.pause();
    }, [playing, audio]);
 
-   useEffect(() => {
-      audio.addEventListener('ended', () => setPlaying(false));
-      return () => {
-         audio.removeEventListener('ended', () => setPlaying(false));
-      };
-   }, [audio]);
+   // useEffect(() => {
+   //    audio.addEventListener('ended', () => setPlaying(false));
+   //    return () => {
+   //       audio.removeEventListener('ended', () => setPlaying(false));
+   //    };
+   // }, [audio]);
 
    return [playing, toggle, audio, setAudio];
 };
 
 const MusicPlayer = () => {
    const [playing, toggle, audio, setAudio] = useAudio(
-      require(`../../music/nell.mp3`)
+      require(`../../music/jake.mp3`)
    );
+   const [songImage, setSongImage] = useState(`jake`);
    const [progressState, setProgressState] = useState(0);
    const [songIndex, setSongIndex] = useState(0);
 
    // Song titles
-   const songs = ['nell', 'kanbei', 'sensei'];
+   const songs = [
+      'jake',
+      'sami',
+      'andy',
+      'max',
+      'adder',
+      'grit',
+      'sonja',
+      'olaf',
+      'lash',
+      'eagle',
+      'drake',
+      'colin',
+      'nell',
+      'kanbei',
+      'sensei',
+      'AW1_menu'
+   ];
 
    useEffect(() => {
       audio.addEventListener('timeupdate', updateProgress);
@@ -39,6 +57,13 @@ const MusicPlayer = () => {
       };
    }, [playing, audio]);
 
+   useEffect(() => {
+      audio.addEventListener('ended', nextSong);
+      return () => {
+         audio.removeEventListener('ended', nextSong);
+      };
+   });
+
    const prevSong = () => {
       let counter = songIndex - 1;
       setSongIndex(counter);
@@ -47,25 +72,23 @@ const MusicPlayer = () => {
          counter = songs.length - 1;
          setSongIndex(counter);
       }
-
       setAudio(new Audio(require(`../../music/${songs[counter]}.mp3`)));
-
+      setSongImage(`${songs[counter]}`);
       audio.load();
    };
 
    // Next song
    const nextSong = () => {
       let counter = songIndex + 1;
-
       setSongIndex(counter);
 
+      console.log(songIndex, counter);
       if (counter > songs.length - 1) {
          counter = 0;
          setSongIndex(0);
       }
-
       setAudio(new Audio(require(`../../music/${songs[counter]}.mp3`)));
-
+      setSongImage(`${songs[counter]}`);
       audio.load();
    };
 
@@ -83,7 +106,7 @@ const MusicPlayer = () => {
             id='music-container'
          >
             <div className='music-info'>
-               {/* <h4 id='title'>title</h4> */}
+               <h5 id='title'>{`${songs[songIndex]}'s theme`}</h5>
                <div className='progress-container' id='progress-container'>
                   <div
                      className='progress'
@@ -110,7 +133,7 @@ const MusicPlayer = () => {
             </div>
             <div className='img-container'>
                <img
-                  src={require(`./${songs[songIndex]}0.png`)}
+                  src={require(`../../music/${songImage}.png`)}
                   alt='music-cover'
                   id='cover'
                />

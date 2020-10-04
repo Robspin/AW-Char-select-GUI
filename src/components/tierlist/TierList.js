@@ -6,7 +6,8 @@ const TierList = ({
    setSelectedCO,
    setClickedCO,
    clickedCO,
-   disabledTiers
+   disabledTiers,
+   comTowers
 }) => {
    const soundEffect = new Audio(soundfile);
 
@@ -140,20 +141,22 @@ const TierList = ({
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
             />
-            <img
-               src={require('../../images/COS/javier0.png')}
-               alt='javier'
-               className={clickedCO.name === 'javier' ? 'CO javier' : 'CO'}
-               onClick={e =>
-                  setClickedCO({
-                     source: e.target.src,
-                     name: 'javier',
-                     tier: 's'
-                  })
-               }
-               onMouseEnter={enterHandler}
-               onMouseLeave={leaveHandler}
-            />
+            {comTowers > 1 ? (
+               <img
+                  src={require('../../images/COS/javier0.png')}
+                  alt='javier'
+                  className={clickedCO.name === 'javier' ? 'CO javier' : 'CO'}
+                  onClick={e =>
+                     setClickedCO({
+                        source: e.target.src,
+                        name: 'javier',
+                        tier: 's'
+                     })
+                  }
+                  onMouseEnter={enterHandler}
+                  onMouseLeave={leaveHandler}
+               />
+            ) : null}
          </div>
          <div
             className={
@@ -240,6 +243,22 @@ const TierList = ({
                onMouseEnter={enterHandler}
                onMouseLeave={leaveHandler}
             />
+            {comTowers === 1 ? (
+               <img
+                  src={require('../../images/COS/javier0.png')}
+                  alt='javier'
+                  className={clickedCO.name === 'javier' ? 'CO javier' : 'CO'}
+                  onClick={e =>
+                     setClickedCO({
+                        source: e.target.src,
+                        name: 'javier',
+                        tier: 'a'
+                     })
+                  }
+                  onMouseEnter={enterHandler}
+                  onMouseLeave={leaveHandler}
+               />
+            ) : null}
          </div>
          <div
             className={
@@ -459,6 +478,22 @@ const TierList = ({
                   })
                }
             />
+            {comTowers === 0 ? (
+               <img
+                  src={require('../../images/COS/javier0.png')}
+                  alt='javier'
+                  className={clickedCO.name === 'javier' ? 'CO javier' : 'CO'}
+                  onClick={e =>
+                     setClickedCO({
+                        source: e.target.src,
+                        name: 'javier',
+                        tier: 'd'
+                     })
+                  }
+                  onMouseEnter={enterHandler}
+                  onMouseLeave={leaveHandler}
+               />
+            ) : null}
          </div>
       </div>
    );

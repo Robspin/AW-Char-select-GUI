@@ -1,14 +1,16 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import './mapselect.css';
 
-import maps, { total } from './maps';
+import maps from './maps';
 
-const MapSelect = ({ setMap, winnerPhase, map }) => {
+const MapSelect = ({ setMap, winnerPhase, map, setComTowers }) => {
    const [hoverImg, setHoverImg] = useState('');
    const [modalClass, setModalClass] = useState('modal');
    const [name, setName] = useState('');
    const [selectedMap, setSelectedMap] = useState('map');
-   const [slice, setSlice] = useState({ a: 0, b: 3 });
+   const [more, setMore] = useState(true);
+
+   const [shuffleList, setShuffleList] = useState(maps);
 
    useEffect(() => {
       if (map) {
@@ -30,12 +32,14 @@ const MapSelect = ({ setMap, winnerPhase, map }) => {
    };
 
    const shuffle = () => {
-      let x = slice.a + total > total ? 3 : slice.a + total;
-      let y = x - 3;
-      setSlice({ a: y, b: x });
+      let result = maps.slice(0, 3).map(function () {
+         return this.splice(Math.floor(Math.random() * this.length), 1)[0];
+      }, maps.slice());
+
+      setShuffleList(result);
    };
 
-   const mapList = maps.slice(slice.a, slice.b).map(map => (
+   const mapList = shuffleList.slice(0, 3).map(map => (
       <img
          className={selectedMap === map.nr ? 'map pos' : 'map'}
          src={require(`../../images/maps/${map.nr}.PNG`)}
@@ -45,8 +49,16 @@ const MapSelect = ({ setMap, winnerPhase, map }) => {
          key={map.nr}
          onClick={() => {
             if (!winnerPhase) return null;
+            if (selectedMap === map.nr) {
+               setSelectedMap('map');
+               setComTowers(0);
+               setMore(true);
+               return setMap(null);
+            }
             setSelectedMap(map.nr);
             setMap({ name: map.name, selectedMap: map.nr });
+            setComTowers(map.comTowers);
+            setMore(false);
          }}
       />
    ));
@@ -57,7 +69,12 @@ const MapSelect = ({ setMap, winnerPhase, map }) => {
             <div className='inline'>
                <div />
                <h3>SELECT MAP</h3>
-               <button className='mapBtn flip' onClick={shuffle}>
+               <button
+                  className={
+                     more === true ? 'mapBtn flip' : 'mapBtn flip btnDisabled'
+                  }
+                  onClick={shuffle}
+               >
                   More
                </button>
             </div>
@@ -76,35 +93,12 @@ const MapSelect = ({ setMap, winnerPhase, map }) => {
                      setMap({ name: 'AGITATED', selectedMap: '1' });
                   }}
                />
-               <img
-                  className={selectedMap === '2' ? 'map pos' : 'map'}
-                  src={require('../../images/maps/2.PNG')}
-                  alt='RAINBOW SYMPHONY'
-                  onMouseEnter={onHover}
-                  onMouseLeave={onLeave}
-                  onClick={() => {
-                     if (!winnerPhase) return null;
-                     setSelectedMap('2');
-                     setMap({ name: 'RAINBOW SYMPHONY', selectedMap: '2' });
-                  }}
-               />
-               <img
-                  className={selectedMap === '3' ? 'map pos' : 'map'}
-                  src={require('../../images/maps/3.PNG')}
-                  alt='ATLAS'
-                  onMouseEnter={onHover}
-                  onMouseLeave={onLeave}
-                  onClick={() => {
-                     if (!winnerPhase) return null;
-                     setSelectedMap('3');
-                     setMap({ name: 'ATLAS', selectedMap: '3' });
-                  }}
-               /> */}
+               */}
             </div>
          </div>
          <div className={modalClass}>
             <h4>{name}</h4>
-            <img className='modal-img' alt='bigmap' src={hoverImg} />
+            <img className='modal-img' alt='' src={hoverImg} />
          </div>
       </Fragment>
    );
