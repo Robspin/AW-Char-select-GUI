@@ -35,6 +35,7 @@ const MusicPlayer = () => {
       'sami',
       'andy',
       'max',
+      'hawke',
       'adder',
       'grit',
       'sonja',
@@ -82,7 +83,6 @@ const MusicPlayer = () => {
       let counter = songIndex + 1;
       setSongIndex(counter);
 
-      console.log(songIndex, counter);
       if (counter > songs.length - 1) {
          counter = 0;
          setSongIndex(0);

@@ -16,7 +16,6 @@ const MapSelect = ({ setMap, winnerPhase, map, setComTowers }) => {
       if (map) {
          setSelectedMap(map.selectedMap);
       }
-      console.log(maps);
    }, [map]);
 
    const onHover = e => {

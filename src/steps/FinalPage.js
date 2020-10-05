@@ -3,10 +3,6 @@ import React from 'react';
 import Timer from '../components/timer/Timer';
 
 const FinalPage = ({ complete }) => {
-   console.log(complete);
-
-   // const p1 = complete.p1 === true ? 'player1' : 'player2';
-
    return (
       <div className='final-page'>
          <img

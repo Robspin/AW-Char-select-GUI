@@ -91,7 +91,6 @@ const ChoosingPage = ({
          {map && clickedCO && winnerPhase === true ? (
             <NextButton
                onClick={() => {
-                  console.log(clickedCO);
                   setDisabledTiers(clickedCO.tier);
                   setWinnerPhase(false);
                   setText(
