@@ -1,0 +1,42 @@
+~~ How to use ~~
+
+
+   CHANGING MAPS
+
+- Change maps by going into /src/components/mapselect/maps.js
+then modify the file to add another map of the same format as the other ones.
+Also put the maps image file (PNG (capitalized)) in /images/maps (and rename it to be next in line ex. "5.PNG"). If the map is not square then it will be stretched so make sure its square example by putting the water behind the original image.
+
+   CHANGING CO TIERS
+
+- Go into /src/components/tierlist/TierList.js
+Look for the image tag of the character you want to move a tier.
+Take the complete tag '<img>...</img>' and move it to the tier you want it to go.
+Make sure to also adjust the tier property to the one you changed it to or the application will be bugged.
+
+   ADDING MUSIC
+
+- Put mp3 files into /src/music/ folder, make sure the filename doesnt contain spaces, also add a picture with the same name and .png type (lowercase). If you dont, APP WILL CRASH. Then go into /src/components/musicplayer/MusicPlayer.js and you will find an array of songs, inside add the songname, after this you should be able to find it in the musicplayer when running the app.
+
+   TESTING APP
+
+- Open terminal (have nodejs installed) cd into directory and type "npm run start",
+this will run an development instance of the app on your pc.
+
+   BUILDING APP
+
+- After having made changes (ex. added maps or changed tiers) and you want to build a
+new executable file, open terminal, cd into directory and type "npm run build" and it will 
+build a new executable inside the dist folder.
+ 
+
+
+Hope you enjoy the app ;) 
+It was a lot of fun to build.
+
+
+
+PS: Here I found some nice music files:
+
+https://downloads.khinsider.com/game-soundtracks/album/advance-wars-1-2-original-gba-audio
+Soundeffects
