@@ -17,7 +17,7 @@ const ChoosingPage = ({
    setPage
 }) => {
    const [text, setText] = useState(
-      `${winner}, please pick a MAP, CO and COLOR. If you want to play Javier, please pick your Map first.`
+      `${winner}, please pick a MAP, CO and COLOR. If you want to play Javier or Grit, please pick your Map first.`
    );
    const [selectedCO, setSelectedCO] = useState('');
    const [clickedCO, setClickedCO] = useState(false);
@@ -26,6 +26,7 @@ const ChoosingPage = ({
    const [loserColor, setLoserColor] = useState('blue');
    const [disabledTiers, setDisabledTiers] = useState('');
    const [comTowers, setComTowers] = useState(0);
+   const [airports, setAirports] = useState(true);
    const [p1, setP1] = useState(true);
 
    const player2 =
@@ -65,6 +66,7 @@ const ChoosingPage = ({
                winnerPhase={winnerPhase}
                setSelectedCO={setSelectedCO}
                setClickedCO={setClickedCO}
+               airports={airports}
                clickedCO={clickedCO}
             />
             <MapSelect
@@ -72,6 +74,7 @@ const ChoosingPage = ({
                map={map}
                winnerPhase={winnerPhase}
                setComTowers={setComTowers}
+               setAirports={setAirports}
             />
          </div>
          <PlayerSelection

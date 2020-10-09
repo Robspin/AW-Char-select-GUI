@@ -7,7 +7,8 @@ const TierList = ({
    setClickedCO,
    clickedCO,
    disabledTiers,
-   comTowers
+   comTowers,
+   airports
 }) => {
    const soundEffect = new Audio(soundfile);
 
@@ -230,6 +231,20 @@ const TierList = ({
                onMouseLeave={leaveHandler}
             />
             <img
+               src={require('../../images/COS/olaf0.png')}
+               alt='olaf'
+               className={clickedCO.name === 'olaf' ? 'CO olaf' : 'CO'}
+               onClick={e =>
+                  setClickedCO({
+                     source: e.target.src,
+                     name: 'olaf',
+                     tier: 'a'
+                  })
+               }
+               onMouseEnter={enterHandler}
+               onMouseLeave={leaveHandler}
+            />
+            <img
                src={require('../../images/COS/nell0.png')}
                alt='nell'
                className={clickedCO.name === 'nell' ? 'CO nelll' : 'CO'}
@@ -259,6 +274,22 @@ const TierList = ({
                   onMouseLeave={leaveHandler}
                />
             ) : null}
+            {!airports && (
+               <img
+                  src={require('../../images/COS/grit0.png')}
+                  alt='grit'
+                  className={clickedCO.name === 'grit' ? 'CO grit' : 'CO'}
+                  onMouseEnter={enterHandler}
+                  onMouseLeave={leaveHandler}
+                  onClick={e =>
+                     setClickedCO({
+                        source: e.target.src,
+                        name: 'grit',
+                        tier: 'a'
+                     })
+                  }
+               />
+            )}
          </div>
          <div
             className={
@@ -401,20 +432,22 @@ const TierList = ({
                   })
                }
             />
-            <img
-               src={require('../../images/COS/grit0.png')}
-               alt='grit'
-               className={clickedCO.name === 'grit' ? 'CO grit' : 'CO'}
-               onMouseEnter={enterHandler}
-               onMouseLeave={leaveHandler}
-               onClick={e =>
-                  setClickedCO({
-                     source: e.target.src,
-                     name: 'grit',
-                     tier: 'c'
-                  })
-               }
-            />
+            {airports && (
+               <img
+                  src={require('../../images/COS/grit0.png')}
+                  alt='grit'
+                  className={clickedCO.name === 'grit' ? 'CO grit' : 'CO'}
+                  onMouseEnter={enterHandler}
+                  onMouseLeave={leaveHandler}
+                  onClick={e =>
+                     setClickedCO({
+                        source: e.target.src,
+                        name: 'grit',
+                        tier: 'c'
+                     })
+                  }
+               />
+            )}
          </div>
          <div className='row'>
             <img

@@ -15,7 +15,7 @@
 }
 
 .tier-img {
-   width: 105px;
+   width: 100px;
 
    margin-left: -28px;
    margin-top: -12px;
@@ -29,9 +29,9 @@
 }
 
 .CO {
-   margin-left: -8px;
+   margin-left: -5px;
    margin-top: 3px;
-   width: 60px;
+   width: 58px;
    background-color: #fbf2c1;
    border: 3px solid black;
    transition: transform 0.1s linear;
