@@ -3,7 +3,13 @@ import './mapselect.css';
 
 import maps from './maps';
 
-const MapSelect = ({ setMap, winnerPhase, map, setComTowers, setAirports }) => {
+const MapSelect = ({
+   setMap,
+   mapChoosePhase,
+   map,
+   setComTowers,
+   setAirports
+}) => {
    const [hoverImg, setHoverImg] = useState('');
    const [modalClass, setModalClass] = useState('modal');
    const [name, setName] = useState('');
@@ -47,7 +53,7 @@ const MapSelect = ({ setMap, winnerPhase, map, setComTowers, setAirports }) => {
          onMouseLeave={onLeave}
          key={map.nr}
          onClick={() => {
-            if (!winnerPhase) return null;
+            if (!mapChoosePhase) return null;
             if (selectedMap === map.nr) {
                setSelectedMap('map');
                setComTowers(0);

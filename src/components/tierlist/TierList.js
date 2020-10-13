@@ -32,7 +32,8 @@ const TierList = ({
                disabledTiers === 'a' ||
                disabledTiers === 'b' ||
                disabledTiers === 'c' ||
-               disabledTiers === 'd'
+               disabledTiers === 'd' ||
+               disabledTiers === 'all'
                   ? 'row disabled'
                   : 'row'
             }
@@ -76,7 +77,8 @@ const TierList = ({
                disabledTiers === 'a' ||
                disabledTiers === 'b' ||
                disabledTiers === 'c' ||
-               disabledTiers === 'd'
+               disabledTiers === 'd' ||
+               disabledTiers === 'all'
                   ? 'row disabled'
                   : 'row'
             }
@@ -163,7 +165,8 @@ const TierList = ({
             className={
                disabledTiers === 'b' ||
                disabledTiers === 'c' ||
-               disabledTiers === 'd'
+               disabledTiers === 'd' ||
+               disabledTiers === 'all'
                   ? 'row disabled'
                   : 'row'
             }
@@ -293,7 +296,9 @@ const TierList = ({
          </div>
          <div
             className={
-               disabledTiers === 'c' || disabledTiers === 'd'
+               disabledTiers === 'c' ||
+               disabledTiers === 'd' ||
+               disabledTiers === 'all'
                   ? 'row disabled'
                   : 'row'
             }
@@ -370,7 +375,13 @@ const TierList = ({
                }
             />
          </div>
-         <div className={disabledTiers === 'd' ? 'row disabled' : 'row'}>
+         <div
+            className={
+               disabledTiers === 'd' || disabledTiers === 'all'
+                  ? 'row disabled'
+                  : 'row'
+            }
+         >
             <img
                className='tier-img letter'
                src={require('../../images/Tiers/C.png')}
@@ -449,7 +460,7 @@ const TierList = ({
                />
             )}
          </div>
-         <div className='row'>
+         <div className={disabledTiers === 'all' ? 'row disabled' : 'row'}>
             <img
                className='tier-img letter'
                src={require('../../images/Tiers/D.png')}

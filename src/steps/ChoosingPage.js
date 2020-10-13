@@ -17,17 +17,18 @@ const ChoosingPage = ({
    setPage
 }) => {
    const [text, setText] = useState(
-      `${winner}, please pick a MAP, CO and COLOR. If you want to play Javier or Grit, please pick your Map first.`
+      `${winner}, please pick your MAP. Then click NEXT STEP.`
    );
    const [selectedCO, setSelectedCO] = useState('');
    const [clickedCO, setClickedCO] = useState(false);
    const [winnerPhase, setWinnerPhase] = useState(true);
    const [winnerColor, setWinnerColor] = useState('red');
    const [loserColor, setLoserColor] = useState('blue');
-   const [disabledTiers, setDisabledTiers] = useState('');
+   const [disabledTiers, setDisabledTiers] = useState('all');
    const [comTowers, setComTowers] = useState(0);
    const [airports, setAirports] = useState(true);
    const [p1, setP1] = useState(true);
+   const [mapChoosePhase, setMapChoosePhase] = useState(true);
 
    const player2 =
       winner === players.player1 ? players.player2 : players.player1;
@@ -38,7 +39,7 @@ const ChoosingPage = ({
             player1CO: clickedCO
          });
          setText(
-            `${winner}, please pick a MAP, CO and COLOR. You can click NEXT STEP when ready...`
+            `${winner}, please pick a CO and COLOR. You can click NEXT STEP when ready...`
          );
       }
       if (clickedCO && winnerPhase === false) {
@@ -75,6 +76,7 @@ const ChoosingPage = ({
                winnerPhase={winnerPhase}
                setComTowers={setComTowers}
                setAirports={setAirports}
+               mapChoosePhase={mapChoosePhase}
             />
          </div>
          <PlayerSelection
@@ -91,6 +93,15 @@ const ChoosingPage = ({
          />
          <Nell text={text} />
          {winnerPhase === false ? <Position p1={p1} setP1={setP1} /> : null}
+         {map && winnerPhase === true && mapChoosePhase === true ? (
+            <NextButton
+               onClick={() => {
+                  setDisabledTiers('');
+                  setText(`${winner}, please pick a CO and COLOR.`);
+                  setMapChoosePhase(false);
+               }}
+            />
+         ) : null}
          {map && clickedCO && winnerPhase === true ? (
             <NextButton
                onClick={() => {
